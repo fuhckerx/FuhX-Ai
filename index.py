@@ -4,12 +4,12 @@ import json
 
 app = Flask(__name__)
 
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = "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"
 
 def ask_ai(question):
     url = "https://openrouter.ai/api/v1/chat/completions"
     payload = {
-        "model": "baidu/cobuddy:free",
+        "model": "deepseek/deepseek-v4-flash:free",
         "messages": [{"role": "user", "content": question}]
     }
     data = json.dumps(payload).encode("utf-8")
@@ -38,4 +38,4 @@ def answer(question):
         return ans, 200, {"Content-Type": "text/plain; charset=utf-8"}
     except Exception as e:
         return str(e), 500, {"Content-Type": "text/plain; charset=utf-8"}
-  
+        
